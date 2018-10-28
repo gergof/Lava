@@ -1,0 +1,27 @@
+{
+  "name": "lava",
+  "version": "0.1.0",
+  "description": "An open source solution for schools to stay in contact with their students on a convinient web interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gergof/Lava.git"
+  },
+  "keywords": [
+    "php",
+    "javascript",
+    "html",
+    "sass",
+    "school",
+    "web"
+  ],
+  "author": "Fándly Gergő",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/gergof/Lava/issues"
+  },
+  "homepage": "https://github.com/gergof/Lava#readme"
+}
