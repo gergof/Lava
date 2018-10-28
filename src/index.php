@@ -61,19 +61,33 @@ else{
         <!-- reCaptcha -->
         <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
-    <body onload="ui.main.a()">
+    <body>
+        <div id="messageOverlay" class="message__overlay"></div>
         <div id="header" class="header">
-            <img style="max-width: 5em; max-height: 5em" src="./res/logo.png" alt="logo"/>
-            <h1>LightFrame</h1>
+            <img class="header__logo" alt="logo" src="./res/logo.png"/>
+            <p class="header__title"><?php echo $lang["site_title"] ?></p>
+            <div class="header__languageSelector">
+                <span><?php echo $lang['language'].": " ?></span>
+                <select id="languageSelector" class="header__languageSelector__select" onchange="ui.main.changeLanguage()">
+                    <?php
+                    foreach($config["language"]["available"] as $l){
+                        echo "<option value=\"".$l."\">".$lang[$l]."</option>";
+                    }
+                    ?>
+                </select>
+            </div>
         </div>
+        <div class="header__break"></div>
         <div id="content">
-            <p>A very basic PHP framework that is made to suit my needs.</p>
             <div id="module">
                 <?php loadPart($view, $sub) ?>
             </div>
         </div>
-        <div id="footer">
-            <p>This site was made using LightFrame</p>
+        <div id="footer" class="footer">
+            <p>&copy; Copyright <?php $config["general"]["name"]." ".date("Y") ?></p>
+            <p>Powered by: <a href="https://github.com/gergof/LightFrame">Lightframe</a></p>
+            <p>Created by: Fándly Gegrő-Zoltán (<a href="mailto: gergo@systemtest.tk">gergo@systemtest.tk</a>, <a href="https://systemtest.tk">Systemtest.tk</a>)</p>
+            <p>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPLv3</a> | <a href="https://github.com/gergof/Lava">GitHub repo</a></p>
         </div>
     </body>
 </html>

@@ -1,8 +1,9 @@
-import * as webcomp from "@webcomponents/webcomponentsjs";
+//import webcomponentsjs 
+import "@webcomponents/webcomponentsjs";
+//import style
 import "../style/main.scss";
-    
-export const main={
-    a: () => {
-        console.log("asd");
-    }
-};
+
+//import modules
+import * as mod_global from "./global.js";
+export const main=mod_global;
+main.run();
