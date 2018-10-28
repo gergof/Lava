@@ -2,3 +2,4 @@ lava.sublime-workspace
 node_modules
 package-lock.json
 deploy.config.js
+user.config.ini
