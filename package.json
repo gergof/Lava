@@ -2,9 +2,14 @@
   "name": "lava",
   "version": "0.1.0",
   "description": "An open source solution for schools to stay in contact with their students on a convinient web interface",
-  "main": "index.js",
+  "main": "src/script/main.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run dist",
+    "deploy": "node deploy",
+    "pack": "webpack",
+    "dist": "npm run pack && npm run deploy"
   },
   "repository": {
     "type": "git",
@@ -23,5 +28,14 @@
   "bugs": {
     "url": "https://github.com/gergof/Lava/issues"
   },
-  "homepage": "https://github.com/gergof/Lava#readme"
+  "homepage": "https://github.com/gergof/Lava#readme",
+  "devDependencies": {
+    "copy-webpack-plugin": "^4.5.4",
+    "css-loader": "^1.0.0",
+    "ftp-deploy": "^2.1.4",
+    "node-sass": "^4.9.4",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.23.1"
+  }
 }
