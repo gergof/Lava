@@ -7,8 +7,6 @@ use function \LightFrame\loadPart;
 $view=isset($_GET["view"])?$_GET["view"]:"";
 $sub=isset($_GET["sub"])?$_GET["sub"]:"";
 
-//uncomment these if you have LoginMaster installed
-/*
 if($lm->validateLogin()){
     //logged in
     if(isset($_GET["logout"])){
@@ -27,7 +25,6 @@ else{
         $lm->forgetUser();
     }
 }
-*/
 
 ?>
 
@@ -38,10 +35,8 @@ else{
         <meta charset="UTF-8"/>
         <!-- link icon -->
         <link rel="icon" href="./res/icon.png"/>
-        <!-- import main CSS -->
-        <link rel="stylesheet" href="./style/main.css"/>
         <!-- import main script -->
-        <script src="./script/main.js"></script>
+        <script src="./script/bundle.js"></script>
         <!-- cookie consent -->
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"/>
         <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
@@ -66,7 +61,7 @@ else{
         <!-- reCaptcha -->
         <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
-    <body>
+    <body onload="a()">
         <div id="header" class="header">
             <img style="max-width: 5em; max-height: 5em" src="./res/logo.png" alt="logo"/>
             <h1>LightFrame</h1>

@@ -65,16 +65,27 @@ class lmHandler implements \LoginMaster\Handler{
     public function handle($state, $target=0){
         switch($state){
             case \LoginMaster\LoginMaster::LOGIN_FAILED:
-                //...
+                \LoginMaster\Utils\setError(200);
+                \LoginMaster\Utils\safeReload();
                 break;
             case \LoginMaster\LoginMaster::CAPTCHA_FAILED:
-                //...
+                \LoginMaster\Utils\setError(201);
+                \LoginMaster\Utils\safeReload();
                 break;
             case \LoginMaster\LoginMaster::BANNED:
-                //...
+                \LoginMaster\Utils\setError(202);
+                \LoginMaster\Utils\safeReload();
                 break;
             case \LoginMaster\LoginMaster::LOGIN_OK:
-                
+                \LoginMaster\Utils\safeReload();
+                break;
+            case \LoginMaster\LoginMaster::LOGOUT_DONE:
+                \LoginMaster\Utils\setError(1);
+                \LoginMaster\Utils\safeReload();
+                break;
+            case \LoginMaster\LoginMaster::FORGET_DONE:
+                \LoginMaster\Utils\setError(2);
+                \LoginMaster\Utils\safeReload();
                 break;
         }
     }

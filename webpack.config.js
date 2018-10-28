@@ -1,11 +1,12 @@
+const path=require("path");
 const CopyWebpackPlugin=require("copy-webpack-plugin");
 
 module.exports={
-    mode: process.env.NODE_ENV || "developement",
-    entry: "src/script/main.js",
+    mode: process.env.NODE_ENV || "development",
+    entry: "./src/script/main.js",
     output: {
-        path: "./dist",
-        filename: "bundle.js"
+        path: path.resolve(__dirname, "dist"),
+        filename: "script/bundle.js"
     },
     module: {
         rules: [{
@@ -18,9 +19,15 @@ module.exports={
         }]
     },
     plugins: [
-        new CopyWebpackPlugin({
-            from: "src",
-            to: "dest"
-        })
+        new CopyWebpackPlugin([
+            {
+                from: "src",
+                to: ".",
+                ignore: [
+                    "script/*",
+                    "style/*",
+                ]
+            }
+        ])
     ]
 };
