@@ -9,7 +9,7 @@ var config={
     localRoot: __dirname+"/dist",
     remoteRoot: cnf.remote,
     include: ["**/*", "**/.*"],
-    deleteRemote: true,
+    deleteRemote: false,
     forcePasv: true
 }
 

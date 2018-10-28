@@ -1,6 +1,8 @@
 import * as webcomp from "@webcomponents/webcomponentsjs";
-import style from "../style/main.scss";
-
-function a(){
-    console.log("asd");
-}
+import "../style/main.scss";
+    
+export const main={
+    a: () => {
+        console.log("asd");
+    }
+};

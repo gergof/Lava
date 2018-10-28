@@ -61,7 +61,7 @@ else{
         <!-- reCaptcha -->
         <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
-    <body onload="a()">
+    <body onload="ui.main.a()">
         <div id="header" class="header">
             <img style="max-width: 5em; max-height: 5em" src="./res/logo.png" alt="logo"/>
             <h1>LightFrame</h1>
