@@ -1,0 +1,26 @@
+@import "colors.scss";
+
+.message{
+    width: 80%;
+    margin: auto;
+    padding: 5em;
+    background: $green;
+    border: 1px solid $darkgreen;
+    color: white;
+    border-radius: 1em;
+
+    &__error{
+        background: $red;
+        border: 1px solid $darkred;
+    }
+
+    &__overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 20%;
+        z-index: 10;
+        display: none;
+    }
+}

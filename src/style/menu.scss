@@ -1,0 +1,19 @@
+@import "colors.scss";
+
+.menu{
+    margin: 0;
+    background: $darkbackground;
+    display: flex;
+    justify-content: stretch;
+    padding: 0;
+    width: 100%;
+
+    &__item{
+        padding: 1em;
+        color: white;
+
+        &:hover{
+            background: $darkestbackground;
+        }
+    }
+}

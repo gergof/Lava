@@ -4,6 +4,7 @@
 require_once("lib/utils.php");
 require_once("lib/LoginMaster/LoginMaster.php");
 require_once("lib/PasswordStorage.php");
+require_once("lib/myUtils.php");
 
 
 //parse config
@@ -77,14 +78,32 @@ class lmHandler implements \LoginMaster\Handler{
                 \LoginMaster\Utils\safeReload();
                 break;
             case \LoginMaster\LoginMaster::LOGIN_OK:
+                //load info about user
+                $sql=$db->prepare("SELECT id, username, fullname FROM users WHERE id=:id");
+                $sql->execute(array(":id"=>$target));
+                $user=$sql->fetch(PDO::FETCH_ASSOC);
+
+                //load groups for user
+                $sql=$db->prepare("SELECT gm.group, g.displayname, gm.primary FROM group_members AS gm INNER JOIN groups AS g ON (g.id=gm.group) WHERE gm.user=:id ORDER BY gm.primary DESC");
+                $sql->execute(array(":id"=>$target));
+                $groups=$sql->fetchAll(PDO::FETCH_ASSOC);
+
+                //set up session
+                $_SESSION["id"]=$target;
+                $_SESSION["username"]=$user["username"];
+                $_SESSION["fullname"]=$user["fullname"];
+                $_SESSION["primary_group"]=$groups[0];
+                $_SESSION["groups"]=$groups;
+
+                //reload
                 \LoginMaster\Utils\safeReload();
                 break;
             case \LoginMaster\LoginMaster::LOGOUT_DONE:
-                \LoginMaster\Utils\setError(1);
+                \LoginMaster\Utils\setMessage(1);
                 \LoginMaster\Utils\safeReload();
                 break;
             case \LoginMaster\LoginMaster::FORGET_DONE:
-                \LoginMaster\Utils\setError(2);
+                \LoginMaster\Utils\setMessage(2);
                 \LoginMaster\Utils\safeReload();
                 break;
         }

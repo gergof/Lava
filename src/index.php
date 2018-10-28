@@ -79,14 +79,59 @@ else{
         </div>
         <div class="header__break"></div>
         <div id="content">
-            <div id="module">
+            <div id="menu" class="menu">
+                <div class="menu__item" onclick="ui.main.goTo('')">
+                    <span><?php echo $lang["index"] ?></span>
+                </div>
+                <div class="menu__item" onclick="ui.main.goTo('about')">
+                    <span><?php echo $lang["about"] ?></span>
+                </div>
+                <div class="menu__item" onclick="ui.main.goTo('info')">
+                    <span><?php echo $lang["info"] ?></span>
+                </div>
+                <?php if($lm->validateLogin()): ?>
+                    <?php if(hasGroup("admin") || hasGroup("manager")): ?>
+                        <div class="menu__item" onclick="ui.main.goTo('users')">
+                            <span><?php echo $lang["users"] ?></span>
+                        </div>
+                        <div class="menu__item" onclick="ui.main.goTo('groups')">
+                            <span><?php echo $lang["groups"] ?></span>
+                        </div>
+                        <div class="menu__item" onclick="ui.main.goTo('news')">
+                            <span><?php echo $lang["news"] ?></span>
+                        </div>
+                        <div class="menu__item" onclick="ui.main.goTo('polls')">
+                            <span><?php echo $lang["polls"] ?></span>
+                        </div>
+                    <?php endif; if(hasGroup("admin")): ?>
+                        <div class="menu__item" onclick="ui.main.goTo('adminarea')">
+                            <span><?php echo $lang["adminarea"] ?></span>
+                        </div>
+                    <?php endif; if(hasGroup("headteacher")): ?>
+                        <div class="menu__item" onclick="ui.main.goTo('myclass')">
+                            <span><?php echo $lang["myclass"] ?></span>
+                        </div>
+                    <?php endif ?>
+                    <div class="menu__item" onclick="ui.main.goTo('profile')">
+                        <span><?php echo $lang["profile"] ?></span>
+                    </div>
+                    <div class="menu__item" onclick="window.location='./?logout'">
+                        <span><?php echo $lang["logout"] ?></span>
+                    </div>
+                <?php else: ?>
+                    <div class="menu__item" onclick="ui.main.goTo('login')">
+                        <span><?php echo $lang["login"] ?></span>
+                    </div>
+                <?php endif ?>
+            </div>
+            <div id="module" class="module">
                 <?php loadPart($view, $sub) ?>
             </div>
         </div>
         <div id="footer" class="footer">
-            <p>&copy; Copyright <?php $config["general"]["name"]." ".date("Y") ?></p>
+            <p>&copy; Copyright <?php echo $config["general"]["name"]." ".date("Y") ?></p>
             <p>Powered by: <a href="https://github.com/gergof/LightFrame">Lightframe</a></p>
-            <p>Created by: Fándly Gegrő-Zoltán (<a href="mailto: gergo@systemtest.tk">gergo@systemtest.tk</a>, <a href="https://systemtest.tk">Systemtest.tk</a>)</p>
+            <p>Created by: Fándly Gergő-Zoltán (<a href="mailto: gergo@systemtest.tk">gergo@systemtest.tk</a>, <a href="https://systemtest.tk">Systemtest.tk</a>, <a href="https://github.com/gergof">GitHub</a>)</p>
             <p>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPLv3</a> | <a href="https://github.com/gergof/Lava">GitHub repo</a></p>
         </div>
     </body>

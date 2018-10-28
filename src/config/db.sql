@@ -138,4 +138,4 @@ CREATE TABLE `poll_assignments`(
 /* nouser */
 INSERT INTO users (`id`, `username`) VALUES (1, 'nouser');
 /* Default groups for RBAC */
-INSERT INTO groups (`id`) VALUES ('admin'),('manager'),('teacher'),('student');
+INSERT INTO groups (`id`) VALUES ('guest'),('admin'),('manager'),('teacher'),('headteacher'),('student');
