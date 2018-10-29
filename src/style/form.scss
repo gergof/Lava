@@ -1,4 +1,27 @@
+@import "colors.scss";
+
 .form{
     width: 50%;
     margin: 5em auto;
+    background: $background;
+    border: 5px solid $border;
+    border-radius: 1em;
+    padding: 2em;
+    text-align: left;
+
+    &__legend{
+        background: $background;
+        color: white;
+        padding: 0.3rem;
+        font-size: 2em;
+        border-radius: 0.5em;
+        text-align: left;
+        margin-left: 10%;
+    }
+
+    &__fields{
+        display: grid;
+        grid-column-template: 30% 70%;
+        grid-column-gap: 0.5em;
+    }
 }

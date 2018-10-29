@@ -86,9 +86,6 @@ else{
                 <div class="menu__item" onclick="ui.main.goTo('about')">
                     <span><?php echo $lang["about"] ?></span>
                 </div>
-                <div class="menu__item" onclick="ui.main.goTo('info')">
-                    <span><?php echo $lang["info"] ?></span>
-                </div>
                 <?php if($lm->validateLogin()): ?>
                     <?php if(hasGroup("admin") || hasGroup("manager")): ?>
                         <div class="menu__item" onclick="ui.main.goTo('users')">
@@ -131,7 +128,7 @@ else{
         <div id="footer" class="footer">
             <p>&copy; Copyright <?php echo $config["general"]["name"]." ".date("Y") ?></p>
             <p>Powered by: <a href="https://github.com/gergof/LightFrame">Lightframe</a></p>
-            <p>Created by: Fándly Gergő-Zoltán (<a href="mailto: gergo@systemtest.tk">gergo@systemtest.tk</a>, <a href="https://systemtest.tk">Systemtest.tk</a>, <a href="https://github.com/gergof">GitHub</a>)</p>
+            <p>Created by: Fándly Gergő-Zoltán (<a href="mailto:contact@systemtest.tk">contact@systemtest.tk</a>, <a href="https://systemtest.tk">Systemtest.tk</a>, <a href="https://github.com/gergof">GitHub</a>)</p>
             <p>Licensed under <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPLv3</a> | <a href="https://github.com/gergof/Lava">GitHub repo</a></p>
         </div>
     </body>

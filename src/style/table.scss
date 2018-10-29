@@ -1,0 +1,38 @@
+@import "colors.scss";
+
+.table{
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+
+    &__header{
+        border-bottom: 2px solid black;
+
+        &>th{
+            padding-bottom: 1em;
+        }
+    }
+
+    &__row{
+        background: white;
+
+        &:nth-child(even){
+            background: $lightbackground;
+        }
+
+        &>td{
+            box-shadow: 2px 2px $background;
+
+            &:first-child{
+                border-bottom-left-radius: 3em;
+                border-top-left-radius: 3em;
+                padding-left: 2em;
+            }
+            &:last-child{
+                border-bottom-right-radius: 3em;
+                border-top-right-radius: 3em;
+                padding-right: 2em;
+            }
+        }
+    }
+}

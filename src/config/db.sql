@@ -64,7 +64,7 @@ CREATE TABLE `news`(
     `id` int(4) UNSIGNED NOT NULL auto_increment,
     `title` varchar(120) NOT NULL default '',
     `content` text NOT NULL default '',
-    `date` timestamp NOT NULL default current_timestamp,
+    `publish` timestamp NOT NULL default current_timestamp,
     `user` int(4) UNSIGNED NOT NULL default 0,
     PRIMARY KEY(`id`),
     FOREIGN KEY(`user`) REFERENCES users(`id`) ON DELETE CASCADE
@@ -92,6 +92,7 @@ CREATE TABLE `polls`(
     `until` timestamp default current_timestamp,
     `results_type` tinyint(1) NOT NULL default 0, /* 0:show results when poll is over; 1:show live results after the user voted; 2: show results before the user voted; 3: hide results */
     `allow_change` tinyint(1) NOT NULL default 0,
+    `publish` timestamp NOT NULL default current_timestamp,
     PRIMARY KEY(`id`)
 ) CHARACTER SET utf8 COLLATE utf8_general_ci;
 
